@@ -353,7 +353,7 @@ export default function ExportActionGroup({
               size="sm"
               onClick={() => setCasePickerOpen(true)}
             >
-              <LuFolderPlus className="text-secondary-foreground" />
+              <LuFolderPlus className="text-selected" />
               {isDesktop && (
                 <div className="text-primary">
                   {context === "case"
@@ -371,7 +371,7 @@ export default function ExportActionGroup({
                 size="sm"
                 onClick={() => setRemoveDialogOpen(true)}
               >
-                <LuFolderX className="text-secondary-foreground" />
+                <LuFolderX className="text-selected" />
                 {isDesktop && (
                   <div className="text-primary">
                     {t("bulkActions.removeFromCase")}
@@ -387,7 +387,7 @@ export default function ExportActionGroup({
               size="sm"
               onClick={handleDelete}
             >
-              <HiTrash className="text-secondary-foreground" />
+              <HiTrash className="text-selected" />
               {isDesktop && (
                 <div className="text-primary">
                   {bypassDialog

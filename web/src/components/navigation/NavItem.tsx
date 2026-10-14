@@ -13,8 +13,10 @@ import { useTranslation } from "react-i18next";
 
 const variants = {
   primary: {
-    active: "font-bold text-white bg-selected hover:bg-selected/80",
-    inactive: "text-secondary-foreground bg-secondary hover:bg-muted",
+    active:
+      "font-semibold text-selected-foreground bg-selected hover:bg-selected-hover",
+    inactive:
+      "text-muted-foreground bg-transparent hover:bg-selected/25 hover:text-foreground",
   },
   secondary: {
     active: "font-bold text-selected",
@@ -28,6 +30,7 @@ type NavItemProps = {
   Icon: IconType;
   onClick?: () => void;
   large?: boolean;
+  showLabel?: boolean;
 };
 
 export default function NavItem({
@@ -36,6 +39,7 @@ export default function NavItem({
   Icon,
   onClick,
   large,
+  showLabel,
 }: NavItemProps) {
   const { t } = useTranslation(["common"]);
   if (item.enabled == false) {
@@ -48,7 +52,8 @@ export default function NavItem({
       onClick={onClick}
       className={({ isActive }) =>
         cn(
-          "flex flex-col items-center justify-center rounded-lg p-[6px]",
+          "flex flex-col items-center justify-center rounded-xl p-[6px]",
+          showLabel && "h-11 flex-row justify-start gap-3 px-3 text-sm",
           className,
           large && "size-12",
           variants[item.variant ?? "primary"][isActive ? "active" : "inactive"],
@@ -56,10 +61,11 @@ export default function NavItem({
       }
     >
       <Icon className={large ? "size-6" : "size-5"} />
+      {showLabel && <span>{t(item.title)}</span>}
     </NavLink>
   );
 
-  if (isDesktop) {
+  if (isDesktop && !showLabel) {
     return (
       <Tooltip>
         <TooltipTrigger>{content}</TooltipTrigger>

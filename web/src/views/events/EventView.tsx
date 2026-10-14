@@ -845,7 +845,7 @@ function DetectionReview({
             title={emptyCardData.title}
             titleHeading={false}
             description={emptyCardData.description}
-            icon={<LuFolderCheck className="size-16" />}
+            icon={<LuFolderCheck className="size-16 text-selected" />}
           />
         )}
 
@@ -1317,7 +1317,7 @@ function MotionReview({
         <EmptyCard
           title={emptyCardData.title}
           description={emptyCardData.description}
-          icon={<LuFolderX className="size-16" />}
+          icon={<LuFolderX className="size-16 text-selected" />}
         />
       </div>
     );

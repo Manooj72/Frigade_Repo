@@ -1,0 +1,67 @@
+@layer base {
+  .theme-orange.light {
+    --background: 0 0% 100%;
+    --background-alt: 0 0% 96.5%;
+    --foreground: 0 0% 7.8%;
+    --card: 0 0% 96.5%;
+    --card-foreground: 0 0% 7.8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7.8%;
+    --primary: 0 0% 7.8%;
+    --primary-variant: 0 0% 36.9%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 92.5%;
+    --secondary-foreground: 0 0% 7.8%;
+    --secondary-highlight: 0 0% 87.1%;
+    --neutral: 0 0% 45.1%;
+    --neutral_variant: 0 0% 32.2%;
+    --muted: 0 0% 92.5%;
+    --muted-foreground: 0 0% 36.9%;
+    --accent: 0 0% 92.5%;
+    --accent-foreground: 0 0% 7.8%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --warning: 45 100% 51%;
+    --warning-foreground: 0 0% 7.8%;
+    --border: 0 0% 87.1%;
+    --input: 0 0% 87.1%;
+    --ring: 24.1 56.4% 50.6%;
+    --selected: 39.5 76.5% 54.9%;
+    --selected-hover: 24.1 56.4% 50.6%;
+    --selected-text: 25.6 65.5% 36.5%;
+    --selected-foreground: 0 0% 6.7%;
+  }
+
+  .theme-orange.dark {
+    --background: 0 0% 5.5%;
+    --background-alt: 0 0% 8.6%;
+    --foreground: 0 0% 94.9%;
+    --card: 0 0% 8.6%;
+    --card-foreground: 0 0% 94.9%;
+    --popover: 0 0% 8.6%;
+    --popover-foreground: 0 0% 94.9%;
+    --primary: 0 0% 94.9%;
+    --primary-variant: 0 0% 63.9%;
+    --primary-foreground: 0 0% 5.5%;
+    --secondary: 0 0% 12.2%;
+    --secondary-foreground: 0 0% 94.9%;
+    --secondary-highlight: 0 0% 16.5%;
+    --neutral: 0 0% 45.1%;
+    --neutral_variant: 0 0% 32.2%;
+    --muted: 0 0% 12.2%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 12.2%;
+    --accent-foreground: 0 0% 94.9%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --warning: 45 100% 51%;
+    --warning-foreground: 0 0% 94.9%;
+    --border: 0 0% 16.5%;
+    --input: 0 0% 16.5%;
+    --ring: 39.5 76.5% 54.9%;
+    --selected: 39.5 76.5% 54.9%;
+    --selected-hover: 24.1 56.4% 50.6%;
+    --selected-text: 39.5 76.5% 54.9%;
+    --selected-foreground: 0 0% 6.7%;
+  }
+}

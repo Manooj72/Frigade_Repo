@@ -890,7 +890,7 @@ function LifecycleItem({
       <div className="relative flex size-4 items-center justify-center">
         <LuCircle
           className={cn(
-            "relative z-10 size-2.5 fill-secondary-foreground stroke-none",
+            "relative z-10 size-2.5 fill-selected/60 stroke-none",
             (isActive || (effectiveTime ?? 0) >= (item?.timestamp ?? 0)) &&
               isTimelineActive &&
               "fill-selected duration-300",
@@ -1107,7 +1107,7 @@ function ObjectTimeline({
 
   return (
     <div className="-pb-2 relative mx-2">
-      <div className="absolute -top-2 bottom-2 left-2 z-0 w-0.5 -translate-x-1/2 bg-secondary-foreground" />
+      <div className="absolute -top-2 bottom-2 left-2 z-0 w-0.5 -translate-x-1/2 bg-selected/50" />
       {isWithinEventRange && (
         <div
           className={cn(

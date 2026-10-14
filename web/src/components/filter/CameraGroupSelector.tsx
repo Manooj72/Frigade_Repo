@@ -59,7 +59,6 @@ import { toast } from "sonner";
 import ActivityIndicator from "../indicators/activity-indicator";
 import { deleteUserNamespacedKey } from "@/hooks/use-user-persistence";
 import { AuthContext } from "@/context/auth-context";
-import { TooltipPortal } from "@radix-ui/react-tooltip";
 import { cn } from "@/lib/utils";
 import * as LuIcons from "react-icons/lu";
 import IconPicker, { IconName, IconRenderer } from "../icons/IconPicker";
@@ -93,25 +92,6 @@ export function CameraGroupSelector({ className }: CameraGroupSelectorProps) {
   const allowedCameras = useAllowedCameras();
   const hasFullCameraAccess = useHasFullCameraAccess();
   const isAdmin = useIsAdmin();
-
-  // tooltip
-
-  const [tooltip, setTooltip] = useState<string>();
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout>();
-  const showTooltip = useCallback(
-    (newTooltip: string | undefined) => {
-      if (!newTooltip) {
-        setTooltip(newTooltip);
-
-        if (timeoutId) {
-          clearTimeout(timeoutId);
-        }
-      } else {
-        setTimeoutId(setTimeout(() => setTooltip(newTooltip), 500));
-      }
-    },
-    [timeoutId],
-  );
 
   // groups - use user-namespaced key for persistence to avoid cross-user conflicts
 
@@ -226,88 +206,64 @@ export function CameraGroupSelector({ className }: CameraGroupSelectorProps) {
       {isDesktop ? (
         <div
           className={cn(
-            "flex flex-col items-center justify-start gap-2",
+            "flex max-w-full flex-wrap items-center gap-1 rounded-xl border border-border bg-card p-1",
             className,
           )}
         >
-          <Tooltip open={tooltip == "default"}>
-            <TooltipTrigger asChild>
-              <Button
-                className={
-                  group == "default"
-                    ? "bg-blue-900 bg-opacity-60 text-selected focus:bg-blue-900 focus:bg-opacity-60"
-                    : "bg-secondary text-secondary-foreground focus:bg-secondary focus:text-secondary-foreground"
-                }
-                aria-label={t("menu.live.allCameras", { ns: "common" })}
-                size="xs"
-                onClick={() => (group ? setGroup("default", true) : null)}
-                onMouseEnter={() => showTooltip("default")}
-                onMouseLeave={() => showTooltip(undefined)}
-              >
-                <MdHome className="size-4" />
-              </Button>
-            </TooltipTrigger>
-            <TooltipPortal>
-              <TooltipContent className="" side="right">
-                {t("menu.live.allCameras", { ns: "common" })}
-              </TooltipContent>
-            </TooltipPortal>
-          </Tooltip>
+          <Button
+            variant="ghost"
+            className={cn(
+              "h-9 gap-2 rounded-lg px-3 text-[13px]",
+              group == "default"
+                ? "bg-selected/30 font-semibold text-selected-text hover:bg-selected/35 focus:bg-selected/30 focus:text-selected-text"
+                : "bg-transparent text-muted-foreground hover:bg-selected/25 hover:text-foreground focus:bg-transparent focus:text-muted-foreground",
+            )}
+            aria-label={t("menu.live.allCameras", { ns: "common" })}
+            size="sm"
+            onClick={() => (group ? setGroup("default", true) : null)}
+          >
+            <MdHome className="size-4 text-selected" />
+            <span>{t("menu.live.allCameras", { ns: "common" })}</span>
+          </Button>
           {groups.map(([name, config]) => {
             return (
-              <Tooltip key={name} open={tooltip == name}>
-                <TooltipTrigger asChild>
-                  <Button
-                    className={
-                      group == name
-                        ? "bg-blue-900 bg-opacity-60 text-selected focus:bg-blue-900 focus:bg-opacity-60"
-                        : "bg-secondary text-secondary-foreground"
-                    }
-                    aria-label={t("group.label")}
-                    size="xs"
-                    onClick={() => setGroup(name, group != "default")}
-                    onMouseEnter={() => showTooltip(name)}
-                    onMouseLeave={() => showTooltip(undefined)}
-                  >
-                    <IconRenderer
-                      icon={
-                        isValidIconName(config.icon)
-                          ? LuIcons[config.icon]
-                          : LuIcons.LuFolder
-                      }
-                      className="size-4"
-                    />
-                  </Button>
-                </TooltipTrigger>
-                <TooltipPortal>
-                  <TooltipContent className="smart-capitalize" side="right">
-                    {name}
-                  </TooltipContent>
-                </TooltipPortal>
-              </Tooltip>
+              <Button
+                key={name}
+                variant="ghost"
+                className={cn(
+                  "h-9 gap-2 rounded-lg px-3 text-[13px]",
+                  group == name
+                    ? "bg-selected/30 font-semibold text-selected-text hover:bg-selected/35 focus:bg-selected/30 focus:text-selected-text"
+                    : "bg-transparent text-muted-foreground hover:bg-selected/25 hover:text-foreground focus:bg-transparent focus:text-muted-foreground",
+                )}
+                aria-label={t("group.label")}
+                size="sm"
+                onClick={() => setGroup(name, group != "default")}
+              >
+                <IconRenderer
+                  icon={
+                    isValidIconName(config.icon)
+                      ? LuIcons[config.icon]
+                      : LuIcons.LuFolder
+                  }
+                  className="size-4 text-selected"
+                />
+                <span className="smart-capitalize">{name}</span>
+              </Button>
             );
           })}
 
           {isAdmin && (
-            <Tooltip open={tooltip == "edit"}>
-              <TooltipTrigger asChild>
-                <Button
-                  className="bg-secondary text-muted-foreground"
-                  aria-label={t("group.editGroups")}
-                  size="xs"
-                  onClick={() => setAddGroup(true)}
-                  onMouseEnter={() => showTooltip("edit")}
-                  onMouseLeave={() => showTooltip(undefined)}
-                >
-                  <LuPencil className="size-4 text-primary-variant" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipPortal>
-                <TooltipContent side="right">
-                  {t("group.editGroups")}
-                </TooltipContent>
-              </TooltipPortal>
-            </Tooltip>
+            <Button
+              variant="ghost"
+              className="size-9 rounded-lg bg-transparent p-0 text-muted-foreground hover:bg-selected/25 hover:text-foreground"
+              aria-label={t("group.editGroups")}
+              title={t("group.editGroups")}
+              size="icon"
+              onClick={() => setAddGroup(true)}
+            >
+              <LuPencil className="size-4 text-selected" />
+            </Button>
           )}
         </div>
       ) : (
@@ -475,10 +431,10 @@ function NewGroupDialog({
                   >
                     <Button
                       size="sm"
+                      variant="select"
                       className={cn(
-                        isDesktop &&
-                          "size-6 rounded-md bg-secondary-foreground p-1 text-background",
-                        isMobile && "text-secondary-foreground",
+                        isDesktop && "size-6 rounded-md p-1",
+                        isMobile && "text-selected-foreground",
                       )}
                       aria-label={t("group.add")}
                       onClick={() => {

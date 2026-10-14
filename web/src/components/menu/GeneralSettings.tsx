@@ -83,11 +83,13 @@ import { MdCategory } from "react-icons/md";
 type GeneralSettingsProps = {
   className?: string;
   large?: boolean;
+  showLabel?: boolean;
 };
 
 export default function GeneralSettings({
   className,
   large,
+  showLabel,
 }: GeneralSettingsProps) {
   const { t } = useTranslation(["common", "views/settings"]);
   const { getLocaleDocUrl } = useDocDomain();
@@ -227,15 +229,21 @@ export default function GeneralSettings({
                 className={cn(
                   "flex flex-col items-center justify-center",
                   isDesktop
-                    ? "cursor-pointer rounded-lg bg-secondary text-secondary-foreground hover:bg-muted"
+                    ? "cursor-pointer rounded-lg bg-transparent text-muted-foreground hover:bg-selected/25 hover:text-foreground"
                     : "text-secondary-foreground",
                   large && "size-12",
+                  showLabel &&
+                    "h-11 w-full flex-row justify-start gap-3 px-3 text-sm",
                   className,
                 )}
               >
                 <LuSettings
-                  className={cn("md:m-[6px]", large ? "size-6" : "size-5")}
+                  className={cn(
+                    showLabel ? "" : "md:m-[6px]",
+                    large ? "size-6" : "size-5",
+                  )}
                 />
+                {showLabel && <span>{t("menu.settings")}</span>}
               </div>
             </TooltipTrigger>
             <TooltipPortal>

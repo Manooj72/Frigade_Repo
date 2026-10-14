@@ -2068,12 +2068,13 @@ function CameraSelectButton({
 
   const trigger = (
     <Button
-      className="flex items-center gap-2 bg-selected smart-capitalize hover:bg-selected"
+      variant="select"
+      className="flex items-center gap-2 smart-capitalize"
       aria-label="Select a camera"
       size="sm"
     >
-      <FaVideo className="text-background dark:text-primary" />
-      <div className="hidden text-background dark:text-primary md:block">
+      <FaVideo className="text-selected-foreground" />
+      <div className="hidden text-selected-foreground md:block">
         {selectedCamera == undefined ? (
           t("cameraSetting.noCamera")
         ) : (

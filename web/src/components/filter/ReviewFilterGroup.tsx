@@ -277,7 +277,7 @@ function ShowReviewFilter({
   );
   return (
     <>
-      <div className="hidden h-9 cursor-pointer items-center justify-start rounded-md bg-secondary p-2 text-sm hover:bg-secondary/80 md:flex">
+      <div className="hidden h-9 cursor-pointer items-center justify-start rounded-xl border border-border bg-card p-2 text-sm hover:bg-secondary md:flex">
         <Switch
           id="reviewed"
           checked={showReviewedSwitch}
@@ -300,7 +300,7 @@ function ShowReviewFilter({
         }
       >
         <FaCheckCircle
-          className={`${showReviewedSwitch ? "text-selected-foreground" : "text-secondary-foreground"}`}
+          className={`${showReviewedSwitch ? "text-selected-foreground" : "text-selected"}`}
         />
       </Button>
     </>
@@ -641,7 +641,7 @@ function ShowMotionOnlyButton({
 
   return (
     <>
-      <div className="mx-1 hidden h-9 cursor-pointer items-center justify-center whitespace-nowrap rounded-md bg-secondary px-3 text-sm text-primary hover:bg-secondary/80 md:inline-flex">
+      <div className="mx-1 hidden h-9 cursor-pointer items-center justify-center whitespace-nowrap rounded-xl border border-border bg-card px-3 text-sm text-foreground hover:bg-secondary md:inline-flex">
         <Switch
           className="ml-1"
           id="collapse-motion"
@@ -665,7 +665,7 @@ function ShowMotionOnlyButton({
           onClick={() => setMotionOnlyButton(!motionOnlyButton)}
         >
           <FaRunning
-            className={`${motionOnlyButton ? "text-selected-foreground" : "text-secondary-foreground"}`}
+            className={`${motionOnlyButton ? "text-selected-foreground" : "text-selected"}`}
           />
         </Button>
       </div>

@@ -148,7 +148,7 @@ export default function SearchActionGroup({
               size="sm"
               onClick={handleDelete}
             >
-              <HiTrash className="text-secondary-foreground" />
+              <HiTrash className="text-selected" />
               {isDesktop && (
                 <div className="text-primary">
                   {bypassDialog

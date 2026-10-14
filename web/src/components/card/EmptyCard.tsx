@@ -34,7 +34,7 @@ export function EmptyCard({
 
   return (
     <div className={cn("flex flex-col items-center gap-2", className)}>
-      {icon}
+      <div className="text-selected">{icon}</div>
       {TitleComponent}
       {description && (
         <div className="mb-3 text-center text-secondary-foreground">

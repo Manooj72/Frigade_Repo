@@ -16,7 +16,11 @@ function providers({ children }: TProvidersProps) {
   return (
     <AuthProvider>
       <ApiProvider>
-        <ThemeProvider defaultTheme="system" storageKey="frigate-ui-theme">
+        <ThemeProvider
+          defaultTheme="system"
+          defaultColorScheme="theme-orange"
+          storageKey="frigate-ui-theme"
+        >
           <LanguageProvider>
             <TooltipProvider>
               <IconContext.Provider value={{ size: "20" }}>

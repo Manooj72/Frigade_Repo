@@ -32,3 +32,12 @@ docs/src/components/DockerComposeGenerator/config/ports.ts
 # GenAI review prompt tester local data (frames from real cameras)
 testing-scripts/genai-review-examples/*
 !testing-scripts/genai-review-examples/README.md
+
+# local python virtualenvs
+/bin/
+/lib/
+/lib64
+/include/
+/pyvenv.cfg
+/frigate-env/
+/frigate_env/

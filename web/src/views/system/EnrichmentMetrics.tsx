@@ -222,7 +222,7 @@ export default function EnrichmentMetrics({
               {groupedEnrichmentMetrics.map((group) => (
                 <div
                   key={group.categoryName}
-                  className="rounded-lg bg-background_alt p-2.5 md:rounded-2xl"
+                  className="rounded-2xl border border-border bg-card p-4"
                 >
                   <div className="mb-5 smart-capitalize">
                     {group.categoryName}

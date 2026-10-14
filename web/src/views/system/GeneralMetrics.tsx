@@ -669,8 +669,10 @@ export default function GeneralMetrics({
           )}
         >
           {statsHistory.length != 0 ? (
-            <div className="rounded-lg bg-background_alt p-2.5 md:rounded-2xl">
-              <div className="mb-5">{t("general.detector.inferenceSpeed")}</div>
+            <div className="rounded-2xl border border-border bg-card p-4">
+              <div className="mb-4 text-sm font-semibold">
+                {t("general.detector.inferenceSpeed")}
+              </div>
               {detInferenceTimeSeries.map((series) => (
                 <ThresholdBarGraph
                   key={series.name}
@@ -690,8 +692,8 @@ export default function GeneralMetrics({
           {statsHistory.length != 0 && (
             <>
               {detTempSeries && (
-                <div className="rounded-lg bg-background_alt p-2.5 md:rounded-2xl">
-                  <div className="mb-5">
+                <div className="rounded-2xl border border-border bg-card p-4">
+                  <div className="mb-4 text-sm font-semibold">
                     {t("general.detector.temperature")}
                   </div>
                   {detTempSeries.map((series) => (
@@ -711,7 +713,7 @@ export default function GeneralMetrics({
             </>
           )}
           {statsHistory.length != 0 ? (
-            <div className="rounded-lg bg-background_alt p-2.5 md:rounded-2xl">
+            <div className="rounded-2xl border border-border bg-card p-4">
               <div className="mb-5 flex flex-row items-center justify-between">
                 {t("general.detector.cpuUsage")}
                 <Popover>
@@ -750,8 +752,10 @@ export default function GeneralMetrics({
             <Skeleton className="aspect-video w-full" />
           )}
           {statsHistory.length != 0 ? (
-            <div className="rounded-lg bg-background_alt p-2.5 md:rounded-2xl">
-              <div className="mb-5">{t("general.detector.memoryUsage")}</div>
+            <div className="rounded-2xl border border-border bg-card p-4">
+              <div className="mb-4 text-sm font-semibold">
+                {t("general.detector.memoryUsage")}
+              </div>
               {detMemSeries.map((series) => (
                 <ThresholdBarGraph
                   key={series.name}
@@ -800,8 +804,8 @@ export default function GeneralMetrics({
               {statsHistory[0]?.gpu_usages && (
                 <>
                   {statsHistory.length != 0 ? (
-                    <div className="rounded-lg bg-background_alt p-2.5 md:rounded-2xl">
-                      <div className="mb-5">
+                    <div className="rounded-2xl border border-border bg-card p-4">
+                      <div className="mb-4 text-sm font-semibold">
                         {t("general.hardwareInfo.gpuUsage")}
                       </div>
                       {gpuSeries.map((series) => (
@@ -823,8 +827,8 @@ export default function GeneralMetrics({
                   {statsHistory.length != 0 ? (
                     <>
                       {gpuMemSeries && (
-                        <div className="rounded-lg bg-background_alt p-2.5 md:rounded-2xl">
-                          <div className="mb-5">
+                        <div className="rounded-2xl border border-border bg-card p-4">
+                          <div className="mb-4 text-sm font-semibold">
                             {t("general.hardwareInfo.gpuMemory")}
                           </div>
                           {gpuMemSeries.map((series) => (
@@ -848,8 +852,8 @@ export default function GeneralMetrics({
                   {statsHistory.length != 0 ? (
                     <>
                       {gpuEncSeries && gpuEncSeries?.length != 0 && (
-                        <div className="rounded-lg bg-background_alt p-2.5 md:rounded-2xl">
-                          <div className="mb-5">
+                        <div className="rounded-2xl border border-border bg-card p-4">
+                          <div className="mb-4 text-sm font-semibold">
                             {t("general.hardwareInfo.gpuEncoder")}
                           </div>
                           {gpuEncSeries.map((series) => (
@@ -873,8 +877,8 @@ export default function GeneralMetrics({
                   {statsHistory.length != 0 ? (
                     <>
                       {gpuComputeSeries && gpuComputeSeries?.length != 0 && (
-                        <div className="rounded-lg bg-background_alt p-2.5 md:rounded-2xl">
-                          <div className="mb-5">
+                        <div className="rounded-2xl border border-border bg-card p-4">
+                          <div className="mb-4 text-sm font-semibold">
                             {t("general.hardwareInfo.gpuCompute")}
                           </div>
                           {gpuComputeSeries.map((series) => (
@@ -898,8 +902,8 @@ export default function GeneralMetrics({
                   {statsHistory.length != 0 ? (
                     <>
                       {gpuDecSeries && gpuDecSeries?.length != 0 && (
-                        <div className="rounded-lg bg-background_alt p-2.5 md:rounded-2xl">
-                          <div className="mb-5">
+                        <div className="rounded-2xl border border-border bg-card p-4">
+                          <div className="mb-4 text-sm font-semibold">
                             {t("general.hardwareInfo.gpuDecoder")}
                           </div>
                           {gpuDecSeries.map((series) => (
@@ -923,8 +927,8 @@ export default function GeneralMetrics({
                   {statsHistory.length != 0 ? (
                     <>
                       {gpuTempSeries && gpuTempSeries?.length != 0 && (
-                        <div className="rounded-lg bg-background_alt p-2.5 md:rounded-2xl">
-                          <div className="mb-5">
+                        <div className="rounded-2xl border border-border bg-card p-4">
+                          <div className="mb-4 text-sm font-semibold">
                             {t("general.hardwareInfo.gpuTemperature")}
                           </div>
                           {gpuTempSeries.map((series) => (
@@ -949,8 +953,8 @@ export default function GeneralMetrics({
                   {statsHistory[0]?.npu_usages && (
                     <>
                       {statsHistory.length != 0 ? (
-                        <div className="rounded-lg bg-background_alt p-2.5 md:rounded-2xl">
-                          <div className="mb-5">
+                        <div className="rounded-2xl border border-border bg-card p-4">
+                          <div className="mb-4 text-sm font-semibold">
                             {t("general.hardwareInfo.npuUsage")}
                           </div>
                           {npuSeries.map((series) => (
@@ -972,8 +976,8 @@ export default function GeneralMetrics({
                       {statsHistory.length != 0 ? (
                         <>
                           {npuTempSeries && npuTempSeries?.length != 0 && (
-                            <div className="rounded-lg bg-background_alt p-2.5 md:rounded-2xl">
-                              <div className="mb-5">
+                            <div className="rounded-2xl border border-border bg-card p-4">
+                              <div className="mb-4 text-sm font-semibold">
                                 {t("general.hardwareInfo.npuTemperature")}
                               </div>
                               {npuTempSeries.map((series) => (
@@ -1007,8 +1011,8 @@ export default function GeneralMetrics({
         </div>
         <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
           {statsHistory.length != 0 ? (
-            <div className="rounded-lg bg-background_alt p-2.5 md:rounded-2xl">
-              <div className="mb-5">
+            <div className="rounded-2xl border border-border bg-card p-4">
+              <div className="mb-4 text-sm font-semibold">
                 {t("general.otherProcesses.processCpuUsage")}
               </div>
               {otherProcessCpuSeries.map((series, index) => (
@@ -1027,8 +1031,8 @@ export default function GeneralMetrics({
             <Skeleton className="aspect-tall w-full" />
           )}
           {statsHistory.length != 0 ? (
-            <div className="rounded-lg bg-background_alt p-2.5 md:rounded-2xl">
-              <div className="mb-5">
+            <div className="rounded-2xl border border-border bg-card p-4">
+              <div className="mb-4 text-sm font-semibold">
                 {t("general.otherProcesses.processMemoryUsage")}
               </div>
               {otherProcessMemSeries.map((series, index) => (

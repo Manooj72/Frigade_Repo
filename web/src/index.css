@@ -4,6 +4,7 @@
 @import "/themes/theme-green.css";
 @import "/themes/theme-high-contrast.css";
 @import "/themes/theme-nord.css";
+@import "/themes/theme-orange.css";
 @import "/themes/theme-red.css";
 
 @tailwind base;

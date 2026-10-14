@@ -389,7 +389,7 @@ export default function LivePlayer({
       className={cn(
         // the card owns the corner: overflow-hidden clips the stream, the still
         // image, and every overlay to this one radius so they stay concentric
-        "relative flex w-full cursor-pointer justify-center overflow-hidden rounded-lg outline md:rounded-2xl",
+        "relative flex w-full cursor-pointer justify-center overflow-hidden rounded-lg border border-border bg-card outline md:rounded-2xl",
         activeTracking &&
           ((showStillWithoutActivity && !liveReady) || liveReady)
           ? "shadow-severity_alert outline-[3px] outline-severity_alert"

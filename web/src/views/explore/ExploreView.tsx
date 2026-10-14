@@ -90,7 +90,7 @@ export default function ExploreView({
   if (eventsByLabel && Object.keys(eventsByLabel).length == 0 && !isLoading) {
     return (
       <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
-        <LuSearchX className="size-16" />
+        <LuSearchX className="size-16 text-selected" />
         {t("noTrackedObjects")}
       </div>
     );

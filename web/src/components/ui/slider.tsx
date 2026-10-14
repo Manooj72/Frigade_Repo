@@ -16,9 +16,9 @@ const Slider = React.forwardRef<
     {...props}
   >
     <SliderPrimitive.Track className="relative h-2 w-full grow overflow-hidden rounded-full bg-secondary">
-      <SliderPrimitive.Range className="absolute h-full bg-primary" />
+      <SliderPrimitive.Range className="absolute h-full bg-selected" />
     </SliderPrimitive.Track>
-    <SliderPrimitive.Thumb className="block h-5 w-5 cursor-pointer rounded-full border-2 border-primary bg-primary ring-offset-background transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" />
+    <SliderPrimitive.Thumb className="block h-5 w-5 cursor-pointer rounded-full border-2 border-selected bg-selected ring-offset-background transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" />
   </SliderPrimitive.Root>
 ));
 Slider.displayName = SliderPrimitive.Root.displayName;
@@ -36,9 +36,9 @@ const VolumeSlider = React.forwardRef<
     {...props}
   >
     <SliderPrimitive.Track className="relative h-1 w-full grow overflow-hidden rounded-full bg-muted">
-      <SliderPrimitive.Range className="absolute h-full bg-primary data-[disabled]:opacity-20" />
+      <SliderPrimitive.Range className="absolute h-full bg-selected data-[disabled]:opacity-20" />
     </SliderPrimitive.Track>
-    <SliderPrimitive.Thumb className="block h-3 w-3 rounded-full bg-primary ring-primary data-[disabled]:pointer-events-none data-[disabled]:bg-muted focus:ring-primary" />
+    <SliderPrimitive.Thumb className="block h-3 w-3 rounded-full bg-selected ring-selected data-[disabled]:pointer-events-none data-[disabled]:bg-muted focus:ring-selected" />
   </SliderPrimitive.Root>
 ));
 VolumeSlider.displayName = SliderPrimitive.Root.displayName;

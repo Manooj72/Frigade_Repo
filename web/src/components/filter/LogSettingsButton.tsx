@@ -30,7 +30,7 @@ export function LogSettingsButton({
       className="flex items-center gap-2"
       aria-label={t("logSettings.label")}
     >
-      <FaCog className="text-secondary-foreground" />
+      <FaCog className="text-selected" />
       <div className="hidden text-primary md:block">
         {t("menu.settings", { ns: "common" })}
       </div>

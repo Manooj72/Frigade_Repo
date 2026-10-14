@@ -91,7 +91,7 @@ export function CamerasFilterButton({
       size="sm"
     >
       <FaVideo
-        className={`${(selectedCameras?.length ?? 0) >= 1 ? "text-selected-foreground" : "text-secondary-foreground"}`}
+        className={`${(selectedCameras?.length ?? 0) >= 1 ? "text-selected-foreground" : "text-selected"}`}
       />
       <div
         className={`${hideText ? "hidden" : ""} ${selectedCameras?.length ? "text-selected-foreground" : "text-primary"}`}

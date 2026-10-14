@@ -416,6 +416,11 @@ export default function LiveDashboardView({
       className="scrollbar-container size-full select-none overflow-y-auto px-1 pt-2 [scrollbar-gutter:stable] md:p-2"
       ref={containerRef}
     >
+      {!isMobile && (
+        <div className="flex items-center gap-2 px-1 pb-3 pt-1">
+          <CameraGroupSelector />
+        </div>
+      )}
       {isMobile && (
         <div className="relative flex h-11 items-center justify-between">
           <Logo className="absolute inset-x-1/2 h-8 -translate-x-1/2" />
@@ -427,7 +432,7 @@ export default function LiveDashboardView({
               <Button
                 className={
                   mobileLayout == "grid"
-                    ? "bg-blue-900 bg-opacity-60 focus:bg-blue-900 focus:bg-opacity-60"
+                    ? "bg-selected/30 text-selected-text hover:bg-selected/35 focus:bg-selected/30"
                     : "bg-secondary"
                 }
                 aria-label="Use mobile grid layout"
@@ -441,7 +446,7 @@ export default function LiveDashboardView({
               <Button
                 className={
                   mobileLayout == "list"
-                    ? "bg-blue-900 bg-opacity-60 focus:bg-blue-900 focus:bg-opacity-60"
+                    ? "bg-selected/30 text-selected-text hover:bg-selected/35 focus:bg-selected/30"
                     : "bg-secondary"
                 }
                 aria-label="Use mobile list layout"
@@ -459,7 +464,7 @@ export default function LiveDashboardView({
               <Button
                 className={cn(
                   isEditMode
-                    ? "bg-selected text-primary"
+                    ? "bg-selected text-selected-foreground"
                     : "bg-secondary text-secondary-foreground",
                 )}
                 aria-label="Enter layout editing mode"

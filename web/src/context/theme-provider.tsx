@@ -6,6 +6,7 @@ type ColorScheme =
   | "theme-blue"
   | "theme-green"
   | "theme-nord"
+  | "theme-orange"
   | "theme-red"
   | "theme-high-contrast"
   | "theme-default";
@@ -15,6 +16,7 @@ export const colorSchemes: ColorScheme[] = [
   "theme-blue",
   "theme-green",
   "theme-nord",
+  "theme-orange",
   "theme-red",
   "theme-high-contrast",
   "theme-default",

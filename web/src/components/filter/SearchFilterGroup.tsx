@@ -316,7 +316,7 @@ function GeneralFilterButton({
       aria-label={t("labels.label")}
     >
       <MdLabel
-        className={`${selectedLabels?.length ? "text-selected-foreground" : "text-secondary-foreground"}`}
+        className={`${selectedLabels?.length ? "text-selected-foreground" : "text-selected"}`}
       />
       <div
         className={`${selectedLabels?.length ? "text-selected-foreground" : "text-primary"}`}
@@ -508,7 +508,7 @@ function SortTypeButton({
       aria-label={t("labels.label")}
     >
       <MdSort
-        className={`${selectedSortType != defaultSortType && selectedSortType != undefined ? "text-selected-foreground" : "text-secondary-foreground"}`}
+        className={`${selectedSortType != defaultSortType && selectedSortType != undefined ? "text-selected-foreground" : "text-selected"}`}
       />
       <div
         className={`${selectedSortType != defaultSortType && selectedSortType != undefined ? "text-selected-foreground" : "text-primary"}`}

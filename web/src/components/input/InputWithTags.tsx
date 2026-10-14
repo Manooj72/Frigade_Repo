@@ -733,7 +733,7 @@ export default function InputWithTags({
                 <TooltipTrigger className="cursor-default">
                   <MdImageSearch
                     aria-label={t("similaritySearch.active")}
-                    className="size-4 text-selected"
+                    className="size-4 text-selected-text"
                   />
                 </TooltipTrigger>
                 <TooltipPortal>
@@ -838,7 +838,7 @@ export default function InputWithTags({
             <CommandGroup heading={t("filter.header.activeFilters")}>
               <div className="my-2 flex flex-wrap gap-2 px-2">
                 {isSimilaritySearch && (
-                  <span className="inline-flex items-center whitespace-nowrap rounded-full bg-blue-100 px-2 py-0.5 text-sm text-blue-800">
+                  <span className="inline-flex items-center whitespace-nowrap rounded-full bg-selected/15 px-2 py-0.5 text-sm text-selected-text">
                     {t("similaritySearch.title")}
                     <button
                       onClick={handleClearSimilarity}

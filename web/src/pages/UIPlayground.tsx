@@ -231,162 +231,190 @@ function UIPlayground() {
     <>
       <div className="h-full w-full">
         <div className="flex h-full">
-          <div className="no-scrollbar mr-5 mt-4 flex-1 content-start gap-2 overflow-y-auto">
+          <div className="no-scrollbar mr-5 mt-4 flex-1 space-y-6 overflow-y-auto pb-8">
             <Heading as="h2">UI Playground</Heading>
 
             <ObjectPathPlotter />
 
-            <IconPicker
-              selectedIcon={selectedIcon}
-              setSelectedIcon={setSelectedIcon}
-            />
+            <section className="space-y-3 rounded-2xl border border-border bg-card p-5">
+              <Heading as="h4">Icon picker</Heading>
+              <IconPicker
+                selectedIcon={selectedIcon}
+                setSelectedIcon={setSelectedIcon}
+              />
+              {selectedIcon?.name && (
+                <p className="text-sm text-muted-foreground">
+                  Selected icon name: {selectedIcon.name}
+                </p>
+              )}
+            </section>
 
-            {selectedIcon?.name && (
-              <p>Selected icon name: {selectedIcon.name}</p>
-            )}
-
-            <Heading as="h4" className="my-5">
-              Scrubber
-            </Heading>
-            <p className="text-small">
-              Shows the 10 most recent events within the last 4 hours
-            </p>
-
-            {!config && <ActivityIndicator />}
-
-            <div ref={contentRef}>
-              <Heading as="h4" className="my-5">
-                Timeline
-              </Heading>
-              <p className="text-small">
-                Handlebar timestamp: {handlebarTime} -&nbsp;
-                {new Date(handlebarTime * 1000).toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  month: "short",
-                  day: "2-digit",
-                  second: "2-digit",
-                })}
-              </p>
-              <p className="text-small">
-                Handlebar is dragging: {isDragging ? "yes" : "no"}
-              </p>
-              <p className="text-small">
-                Export start timestamp: {exportStartTime} -&nbsp;
-                {new Date(exportStartTime * 1000).toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  month: "short",
-                  day: "2-digit",
-                  second: "2-digit",
-                })}
-              </p>
-              <p className="text-small">
-                Export end timestamp: {exportEndTime} -&nbsp;
-                {new Date(exportEndTime * 1000).toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  month: "short",
-                  day: "2-digit",
-                  second: "2-digit",
-                })}
-              </p>
-              <div className="my-4">
-                <Heading as="h4">Timeline type</Heading>
-                <Select
-                  defaultValue={isEventsReviewTimeline ? "event" : "motion"}
-                  onValueChange={(checked) => {
-                    setIsEventsReviewTimeline(checked == "event");
-                  }}
-                >
-                  <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Select a timeline" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectGroup>
-                      <SelectLabel>Timeline Type</SelectLabel>
-                      <SelectItem value="event">Event Review</SelectItem>
-                      <SelectItem value="motion">
-                        Motion/Audio Review
-                      </SelectItem>
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="flex items-center justify-start p-2">
-                <Switch
-                  id="exporthandles"
-                  checked={showExportHandles}
-                  onCheckedChange={() => {
-                    setShowExportHandles(!showExportHandles);
-                    if (showExportHandles) {
-                      setExportEndTime(
-                        Math.round((Date.now() / 1000 - 43 * 60) / 60) * 60,
-                      );
-                      setExportStartTime(
-                        Math.round((Date.now() / 1000 - 45 * 60) / 60) * 60,
-                      );
-                    }
-                  }}
-                />
-                <Label className="ml-2" htmlFor="exporthandles">
-                  Show Export Handles
-                </Label>
-              </div>
+            <section className="space-y-4 rounded-2xl border border-border bg-card p-5">
               <div>
-                <Button
-                  onClick={() => {
-                    navigate("/export", {
-                      state: { start: exportStartTime, end: exportEndTime },
-                    });
-                  }}
-                  disabled={!showExportHandles}
-                >
-                  Export
-                </Button>
+                <Heading as="h4">Scrubber</Heading>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Shows the 10 most recent events within the last 4 hours
+                </p>
               </div>
-              <div className="my-4 w-[40px]">
-                <CameraActivityIndicator />
+
+              {!config && <ActivityIndicator />}
+
+              <div ref={contentRef} className="space-y-6">
+                <div className="space-y-3">
+                  <Heading as="h4">Timeline</Heading>
+                  <dl className="grid gap-x-6 gap-y-2 text-sm sm:grid-cols-[auto_1fr]">
+                    <dt className="text-muted-foreground">
+                      Handlebar timestamp
+                    </dt>
+                    <dd className="font-mono">
+                      {handlebarTime} -&nbsp;
+                      {new Date(handlebarTime * 1000).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        month: "short",
+                        day: "2-digit",
+                        second: "2-digit",
+                      })}
+                    </dd>
+                    <dt className="text-muted-foreground">
+                      Handlebar is dragging
+                    </dt>
+                    <dd className="font-mono">{isDragging ? "yes" : "no"}</dd>
+                    <dt className="text-muted-foreground">
+                      Export start timestamp
+                    </dt>
+                    <dd className="font-mono">
+                      {exportStartTime} -&nbsp;
+                      {new Date(exportStartTime * 1000).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        month: "short",
+                        day: "2-digit",
+                        second: "2-digit",
+                      })}
+                    </dd>
+                    <dt className="text-muted-foreground">
+                      Export end timestamp
+                    </dt>
+                    <dd className="font-mono">
+                      {exportEndTime} -&nbsp;
+                      {new Date(exportEndTime * 1000).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        month: "short",
+                        day: "2-digit",
+                        second: "2-digit",
+                      })}
+                    </dd>
+                  </dl>
+                </div>
+
+                <div className="flex flex-wrap items-end gap-6">
+                  <div className="space-y-2">
+                    <Heading as="h4">Timeline type</Heading>
+                    <Select
+                      defaultValue={isEventsReviewTimeline ? "event" : "motion"}
+                      onValueChange={(checked) => {
+                        setIsEventsReviewTimeline(checked == "event");
+                      }}
+                    >
+                      <SelectTrigger className="w-[200px]">
+                        <SelectValue placeholder="Select a timeline" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectGroup>
+                          <SelectLabel>Timeline Type</SelectLabel>
+                          <SelectItem value="event">Event Review</SelectItem>
+                          <SelectItem value="motion">
+                            Motion/Audio Review
+                          </SelectItem>
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="flex h-10 items-center">
+                    <Switch
+                      id="exporthandles"
+                      checked={showExportHandles}
+                      onCheckedChange={() => {
+                        setShowExportHandles(!showExportHandles);
+                        if (showExportHandles) {
+                          setExportEndTime(
+                            Math.round((Date.now() / 1000 - 43 * 60) / 60) * 60,
+                          );
+                          setExportStartTime(
+                            Math.round((Date.now() / 1000 - 45 * 60) / 60) * 60,
+                          );
+                        }
+                      }}
+                    />
+                    <Label className="ml-2" htmlFor="exporthandles">
+                      Show Export Handles
+                    </Label>
+                  </div>
+                  <Button
+                    onClick={() => {
+                      navigate("/export", {
+                        state: { start: exportStartTime, end: exportEndTime },
+                      });
+                    }}
+                    disabled={!showExportHandles}
+                  >
+                    Export
+                  </Button>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-4">
+                  <div className="w-[40px]">
+                    <CameraActivityIndicator />
+                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    zoom level: {zoomLevel}
+                  </span>
+                  <div className="flex gap-2">
+                    <Button
+                      variant="default"
+                      onClick={handleZoomOut}
+                      disabled={zoomLevel === 0}
+                    >
+                      Zoom Out
+                    </Button>
+                    <Button
+                      onClick={handleZoomIn}
+                      disabled={zoomLevel === possibleZoomLevels.length - 1}
+                    >
+                      Zoom In
+                    </Button>
+                  </div>
+                </div>
+
+                <div ref={containerRef} className="">
+                  {birdseyeConfig && (
+                    <BirdseyeLivePlayer
+                      birdseyeConfig={birdseyeConfig}
+                      liveMode={birdseyeConfig.restream ? "mse" : "jsmpeg"}
+                      containerRef={containerRef}
+                    />
+                  )}
+                </div>
               </div>
-              zoom level: {zoomLevel}
-              <p>
-                <Button
-                  variant="default"
-                  onClick={handleZoomOut}
-                  disabled={zoomLevel === 0}
-                >
-                  Zoom Out
-                </Button>
-                <Button
-                  onClick={handleZoomIn}
-                  disabled={zoomLevel === possibleZoomLevels.length - 1}
-                >
-                  Zoom In
-                </Button>
-              </p>
-              <div ref={containerRef} className="">
-                {birdseyeConfig && (
-                  <BirdseyeLivePlayer
-                    birdseyeConfig={birdseyeConfig}
-                    liveMode={birdseyeConfig.restream ? "mse" : "jsmpeg"}
-                    containerRef={containerRef}
-                  />
-                )}
+            </section>
+
+            <section className="space-y-4 rounded-2xl border border-border bg-card p-5">
+              <div>
+                <Heading as="h4">Color scheme</Heading>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Colors as set by the current theme. See the{" "}
+                  <a
+                    className="underline"
+                    href="https://ui.shadcn.com/docs/theming"
+                  >
+                    shadcn theming docs
+                  </a>{" "}
+                  for usage.
+                </p>
               </div>
-              <Heading as="h4" className="my-5">
-                Color scheme
-              </Heading>
-              <p className="text-small">
-                Colors as set by the current theme. See the{" "}
-                <a
-                  className="underline"
-                  href="https://ui.shadcn.com/docs/theming"
-                >
-                  shadcn theming docs
-                </a>{" "}
-                for usage.
-              </p>
-              <div className="my-5">
+              <div className="grid gap-x-8 sm:grid-cols-2 xl:grid-cols-3">
                 {colors.map((color, index) => (
                   <ColorSwatch
                     key={index}
@@ -395,7 +423,7 @@ function UIPlayground() {
                   />
                 ))}
               </div>
-            </div>
+            </section>
           </div>
 
           <div className="no-scrollbar w-[55px] overflow-y-auto md:w-[100px]">

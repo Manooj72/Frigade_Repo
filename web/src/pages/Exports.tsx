@@ -1034,7 +1034,7 @@ function AllExportsView({
         <ActivityIndicator className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
       ) : (
         <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
-          <LuFolderX className="size-16" />
+          <LuFolderX className="size-16 text-selected" />
           {t("noExports")}
         </div>
       )}
@@ -1214,7 +1214,7 @@ function CaseView({
         </div>
       ) : (
         <div className="flex min-h-[16rem] flex-col items-center justify-center p-6 text-center">
-          <LuFolderX className="size-12" />
+          <LuFolderX className="size-12 text-selected" />
           <div className="mt-3 text-lg font-medium">
             {t("caseView.emptyTitle")}
           </div>

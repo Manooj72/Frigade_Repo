@@ -49,7 +49,7 @@ export default function CalendarFilterButton({
       size="sm"
     >
       <FaCalendarAlt
-        className={`${day == undefined ? "text-secondary-foreground" : "text-selected-foreground"}`}
+        className={`${day == undefined ? "text-selected" : "text-selected-foreground"}`}
       />
       <div
         className={`hidden md:block ${day == undefined ? "text-primary" : "text-selected-foreground"}`}
@@ -124,7 +124,7 @@ export function CalendarRangeFilterButton({
       size="sm"
     >
       <FaCalendarAlt
-        className={`${range == undefined ? "text-secondary-foreground" : "text-selected-foreground"}`}
+        className={`${range == undefined ? "text-selected" : "text-selected-foreground"}`}
       />
       <div
         className={`${range == undefined ? "text-primary" : "text-selected-foreground"}`}

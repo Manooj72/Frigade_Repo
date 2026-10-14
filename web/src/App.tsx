@@ -121,7 +121,7 @@ function DefaultAppView() {
             ? isPWA
               ? "bottom-[calc(3rem+env(safe-area-inset-bottom))] left-0 pt-[env(safe-area-inset-top)] md:bottom-[calc(4rem+env(safe-area-inset-bottom))] landscape:pl-[env(safe-area-inset-left)] landscape:pr-[env(safe-area-inset-right)]"
               : "bottom-12 left-0 md:bottom-16"
-            : "bottom-8 left-[52px]",
+            : "bottom-8 left-[232px] pl-4 pr-3",
         )}
       >
         <LazyPage

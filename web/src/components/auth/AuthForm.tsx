@@ -97,17 +97,22 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   };
 
   return (
-    <div className={cn("grid gap-6", className)} {...props}>
+    <div className={cn("grid gap-4", className)} {...props}>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="flex flex-col gap-[18px]"
+        >
           <FormField
             name="user"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>{t("form.user")}</FormLabel>
+              <FormItem className="flex flex-col gap-2">
+                <FormLabel className="text-[13px] font-semibold">
+                  {t("form.user")}
+                </FormLabel>
                 <FormControl>
                   <Input
-                    className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
+                    className="h-11 w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
                     autoFocus
                     autoCapitalize="off"
                     autoCorrect="off"
@@ -121,11 +126,13 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           <FormField
             name="password"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>{t("form.password")}</FormLabel>
+              <FormItem className="flex flex-col gap-2">
+                <FormLabel className="text-[13px] font-semibold">
+                  {t("form.password")}
+                </FormLabel>
                 <FormControl>
                   <Input
-                    className="w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
+                    className="h-11 w-full border border-input bg-background p-2 hover:bg-accent hover:text-accent-foreground dark:[color-scheme:dark]"
                     type="password"
                     {...field}
                   />
@@ -133,11 +140,11 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               </FormItem>
             )}
           />
-          <div className="flex flex-row gap-2 pt-5">
+          <div className="flex flex-row gap-2 pt-2">
             <Button
               variant="select"
               disabled={isLoading}
-              className="flex flex-1"
+              className="flex h-11 flex-1 text-[15px]"
               aria-label={t("form.login")}
             >
               {isLoading && <ActivityIndicator className="mr-2 h-4 w-4" />}

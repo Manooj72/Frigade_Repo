@@ -6,16 +6,18 @@ import { LanguageProvider } from "@/context/language-provider";
 
 function LoginPage() {
   return (
-    <ThemeProvider defaultTheme="system" storageKey="frigate-ui-theme">
+    <ThemeProvider
+      defaultTheme="system"
+      defaultColorScheme="theme-orange"
+      storageKey="frigate-ui-theme"
+    >
       <LanguageProvider>
-        <div className="size-full overflow-hidden">
-          <div className="p-8">
-            <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
-              <div className="flex flex-col items-center space-y-2">
-                <Logo className="mb-6 h-8 w-8" />
-              </div>
-              <UserAuthForm />
+        <div className="flex size-full items-center justify-center overflow-y-auto bg-background p-6">
+          <div className="flex w-full max-w-[400px] flex-col gap-[18px] rounded-lg border border-border bg-card p-9 text-card-foreground">
+            <div className="mb-2 flex items-center gap-3">
+              <Logo className="size-11 text-selected" />
             </div>
+            <UserAuthForm />
           </div>
         </div>
       </LanguageProvider>

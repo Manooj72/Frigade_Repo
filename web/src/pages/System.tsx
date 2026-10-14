@@ -139,7 +139,7 @@ function System() {
           <ScrollArea className="whitespace-nowrap">
             <div className="flex flex-row">
               <ToggleGroup
-                className="*:rounded-md *:px-3 *:py-4"
+                className="rounded-xl border border-border bg-card p-1 *:rounded-lg *:px-3 *:py-2"
                 type="single"
                 size="sm"
                 value={pageToggle}
@@ -184,8 +184,10 @@ function System() {
           )}
         </div>
       </div>
-      <div className="mt-2 flex items-end gap-2">
-        <div className="h-full content-center font-medium">{t("title")}</div>
+      <div className="mb-1 mt-4 flex items-end gap-2 px-1">
+        <div className="h-full content-center text-lg font-semibold">
+          {t("title")}
+        </div>
         {statsSnapshot && (
           <div className="h-full content-center text-sm text-muted-foreground">
             {statsSnapshot.service.version}

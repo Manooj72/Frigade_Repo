@@ -462,7 +462,7 @@ export default function FaceLibrary() {
       </div>
       {pageToggle && faceImages?.length === 0 && pageToggle !== "train" ? (
         <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
-          <LuFolderCheck className="size-16" />
+          <LuFolderCheck className="size-16 text-selected" />
           {t("nofaces")}
         </div>
       ) : (
@@ -778,7 +778,7 @@ function TrainingGrid({
       return (
         <EmptyCard
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center text-center"
-          icon={<AddFaceIcon className="size-16" />}
+          icon={<AddFaceIcon className="size-16 text-selected" />}
           title={t("train.emptyNoLibrary.title")}
           description={t("train.emptyNoLibrary.description")}
           buttonText={t("button.addFace")}
@@ -789,7 +789,7 @@ function TrainingGrid({
 
     return (
       <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
-        <LuFolderCheck className="size-16" />
+        <LuFolderCheck className="size-16 text-selected" />
         {t("train.empty")}
       </div>
     );
@@ -1065,7 +1065,7 @@ function FaceGrid({
   if (sortedFaces.length === 0) {
     return (
       <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center text-center">
-        <LuFolderCheck className="size-16" />
+        <LuFolderCheck className="size-16 text-selected" />
         {t("nofaces")}
       </div>
     );

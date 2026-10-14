@@ -1237,7 +1237,7 @@ export function ConfigSection({
               {t("button.cancel", { ns: "common" })}
             </AlertDialogCancel>
             <AlertDialogAction
-              className="bg-selected text-white hover:bg-selected/90"
+              className="bg-selected text-selected-foreground hover:bg-selected-hover"
               onClick={async () => {
                 await handleResetToGlobal();
                 setIsResetDialogOpen(false);

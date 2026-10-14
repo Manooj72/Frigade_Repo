@@ -33,9 +33,13 @@ import { useTranslation } from "react-i18next";
 
 type AccountSettingsProps = {
   className?: string;
+  showLabel?: boolean;
 };
 
-export default function AccountSettings({ className }: AccountSettingsProps) {
+export default function AccountSettings({
+  className,
+  showLabel,
+}: AccountSettingsProps) {
   const { t } = useTranslation(["views/settings", "common"]);
   const { data: profile } = useSWR("profile");
   const { data: config } = useSWR("config");
@@ -88,13 +92,23 @@ export default function AccountSettings({ className }: AccountSettingsProps) {
             <div
               className={cn(
                 "flex flex-col items-center justify-center",
+                showLabel &&
+                  "h-11 w-full flex-row justify-start gap-3 px-3 text-sm",
                 isDesktop
-                  ? "cursor-pointer rounded-lg bg-secondary text-secondary-foreground hover:bg-muted"
+                  ? "cursor-pointer rounded-lg bg-transparent text-muted-foreground hover:bg-selected/25 hover:text-foreground"
                   : "text-secondary-foreground",
                 className,
               )}
             >
-              <VscAccount className="size-5 md:m-[6px]" />
+              <VscAccount
+                className={cn("size-5", !showLabel && "md:m-[6px]")}
+              />
+              {showLabel && (
+                <span>
+                  {profile?.username ??
+                    t("menu.user.account", { ns: "common" })}
+                </span>
+              )}
             </div>
           </TooltipTrigger>
         </Trigger>

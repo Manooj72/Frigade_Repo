@@ -264,9 +264,9 @@ function ConfigEditor() {
   return (
     <div className="absolute bottom-2 left-0 right-0 top-2 md:left-2">
       <div className="relative flex h-full flex-col overflow-hidden">
-        <div className="mr-1 flex items-center justify-between">
+        <div className="mx-1 flex flex-wrap items-center justify-between gap-3 pb-3">
           <div>
-            <Heading as="h2" className="mb-0 ml-1 md:ml-0">
+            <Heading as="h2" className="mb-0 ml-1 text-2xl md:ml-0">
               {t(config?.safe_mode ? "safeConfigEditor" : "configEditor")}
             </Heading>
             {config?.safe_mode && (
@@ -275,14 +275,14 @@ function ConfigEditor() {
               </div>
             )}
           </div>
-          <div className="flex flex-row gap-1">
+          <div className="flex flex-row items-center gap-2">
             <Button
               size="sm"
               className="flex items-center gap-2"
               aria-label={t("copyConfig")}
               onClick={() => handleCopyConfig()}
             >
-              <LuCopy className="text-secondary-foreground" />
+              <LuCopy className="size-4 text-selected" />
               <span className="hidden md:block">{t("copyConfig")}</span>
             </Button>
             <Button
@@ -291,9 +291,9 @@ function ConfigEditor() {
               aria-label={t("saveAndRestart")}
               onClick={handleSaveAndRestart}
             >
-              <div className="relative size-5">
-                <LuSave className="absolute left-0 top-0 size-3 text-secondary-foreground" />
-                <MdOutlineRestartAlt className="absolute size-4 translate-x-1 translate-y-1/2 text-secondary-foreground" />
+              <div className="flex items-center gap-0.5">
+                <LuSave className="size-4 text-selected" />
+                <MdOutlineRestartAlt className="size-4 text-selected" />
               </div>
               <span className="hidden md:block">{t("saveAndRestart")}</span>
             </Button>
@@ -303,7 +303,7 @@ function ConfigEditor() {
               aria-label={t("saveOnly")}
               onClick={() => onHandleSaveConfig("saveonly")}
             >
-              <LuSave className="text-secondary-foreground" />
+              <LuSave className="size-4 text-selected" />
               <span className="hidden md:block">{t("saveOnly")}</span>
             </Button>
           </div>
@@ -315,7 +315,10 @@ function ConfigEditor() {
               {error}
             </div>
           )}
-          <div ref={configRef} className="flex-1 overflow-hidden" />
+          <div
+            ref={configRef}
+            className="flex-1 overflow-hidden rounded-xl border border-border"
+          />
         </div>
       </div>
       <Toaster closeButton={true} />

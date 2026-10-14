@@ -72,6 +72,8 @@ module.exports = {
         selected: {
           DEFAULT: "hsl(var(--selected))",
           foreground: "hsl(var(--selected-foreground))",
+          hover: "hsl(var(--selected-hover, var(--selected)))",
+          text: "hsl(var(--selected-text, var(--selected)))",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",

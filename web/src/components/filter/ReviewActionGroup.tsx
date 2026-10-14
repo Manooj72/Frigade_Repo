@@ -167,7 +167,7 @@ export default function ReviewActionGroup({
                 onClearSelected();
               }}
             >
-              <FaCompactDisc className="text-secondary-foreground" />
+              <FaCompactDisc className="text-selected" />
               {isDesktop && (
                 <div className="text-primary">
                   {t("recording.button.export")}
@@ -207,7 +207,7 @@ export default function ReviewActionGroup({
                   aria-label={t("recording.button.export")}
                   size="sm"
                 >
-                  <FaCompactDisc className="text-secondary-foreground" />
+                  <FaCompactDisc className="text-selected" />
                   {isDesktop && (
                     <div className="text-primary">
                       {t("recording.button.export")}
@@ -227,9 +227,9 @@ export default function ReviewActionGroup({
             onClick={onToggleReviewed}
           >
             {allReviewed ? (
-              <FaCircleXmark className="text-secondary-foreground" />
+              <FaCircleXmark className="text-selected" />
             ) : (
-              <FaCircleCheck className="text-secondary-foreground" />
+              <FaCircleCheck className="text-selected" />
             )}
             {isDesktop && (
               <div className="text-primary">
@@ -246,7 +246,7 @@ export default function ReviewActionGroup({
               size="sm"
               onClick={handleDelete}
             >
-              <HiTrash className="text-secondary-foreground" />
+              <HiTrash className="text-selected" />
               {isDesktop && (
                 <div className="text-primary">
                   {bypassDialog

@@ -866,7 +866,7 @@ export function TrackingDetails({
               ) : (
                 <div className="-pb-2 relative mx-0" ref={timelineContainerRef}>
                   <div
-                    className="absolute -top-2 left-6 z-0 w-0.5 -translate-x-1/2 bg-secondary-foreground"
+                    className="absolute -top-2 left-6 z-0 w-0.5 -translate-x-1/2 bg-selected/50"
                     style={{ bottom: lineBottomOffsetPx }}
                   />
                   {isWithinEventRange && (
@@ -1070,7 +1070,7 @@ function LifecycleIconRow({
         <div className="relative ml-2 flex size-4 items-center justify-center">
           <LuCircle
             className={cn(
-              "relative z-10 size-2.5 fill-secondary-foreground stroke-none",
+              "relative z-10 size-2.5 fill-selected/60 stroke-none",
               (isActive || (effectiveTime ?? 0) >= (item?.timestamp ?? 0)) &&
                 isTimelineActive &&
                 "fill-selected duration-300",

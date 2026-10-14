@@ -241,7 +241,7 @@ export default function Replay() {
   if (!status?.active || replayJob?.status === "cancelled") {
     return (
       <div className="flex size-full flex-col items-center justify-center gap-4 p-8">
-        <MdReplay className="size-12" />
+        <MdReplay className="size-12 text-selected" />
         <Heading as="h2" className="text-center">
           {t("page.noSession")}
         </Heading>

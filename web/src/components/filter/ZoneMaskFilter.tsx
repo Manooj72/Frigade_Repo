@@ -27,7 +27,7 @@ export function ZoneMaskFilterButton({
       aria-label={t("zoneMask.filterBy")}
     >
       <FaFilter
-        className={`${selectedZoneMask?.length ? "text-selected-foreground" : "text-secondary-foreground"}`}
+        className={`${selectedZoneMask?.length ? "text-selected-foreground" : "text-selected"}`}
       />
       <div
         className={`hidden md:block ${selectedZoneMask?.length ? "text-selected-foreground" : "text-primary"}`}
